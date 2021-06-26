@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;600&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --dark_color: #161f3b;
+  --dark_color2: #242e4c;
+  --dark_color3: #28314d;
+  --text_color: #e5ebf1;
+}
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    background-color: var(--dark_color);
+    color: var(--text_color);
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .ads_frame {
+    background-color: var(--dark_color2);
+    width: 100%;
+    padding: max(15px, 5%);
+    margin: 0 5%;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(12, 16, 31, 0.4);
+    overflow: auto;
+}
+
+.search_form {
+    display:flex;
+    justify-content: space-between;
+}
+
+.search_form > * {
+    background-color: var(--dark_color2);
+    border: 1px solid rgb(15, 14, 14);
+    color: var(--text_color);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.search_form input {
+  width: clamp(150px, 75%, 300px);
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  outline: none;
+} 
+
+.search_form button {
+  cursor: pointer;
+}
+
+.ads_table {
+  width: 100%;
+  border-collapse: separate;
+  margin-top: 1rem;
+  border-spacing: 0 1rem;
+}
+
+.ads_table th {
+  text-align: left;
+}
+
+/* Hack to add border radius to entire table row*/
+.ads_table tbody tr td:first-child {
+  border-radius: 15px 0 0 15px;
+}
+.ads_table tbody tr td:last-child {
+  border-radius: 0 15px 15px 0;
+}
+
+.ads_table tbody tr:nth-child(even) td{
+  border: 1px solid var(--dark_color);
+  background-color: var(--dark_color);
+}
+
+.ads_table tbody tr:nth-child(odd) td  {
+  border: 1px solid var(--dark_color3);
+  background-color: var(--dark_color3);
+}
+
+.ads_table thead th,
+.ads_table tbody td{
+  padding: 15px;
+} 
+
+.ads_table thead th {
+  padding-bottom: 0;
+}
+
+
+@media screen and (max-width: 680px) {
+  body {
+    height: 100%;
+  }
+  thead {
+    position: absolute;
+    opacity: 0;
+  }
+  tbody td:nth-of-type(1):before,
+  tbody td:nth-of-type(2):before,
+  tbody td:nth-of-type(3):before,
+  tbody td:nth-of-type(4):before {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  tbody td:nth-of-type(1):before {
+    content: "Name";
+  }
+  tbody td:nth-of-type(2):before {
+    content: "Clicks";
+  }
+  tbody td:nth-of-type(3):before {
+    content: "Priority";
+  }
+  tbody td:nth-of-type(4):before {
+    content: "Impressions";
+  }
+
+  .ads_table tbody tr td:first-child {
+    border-radius: 15px 15px 0 0;
+  }
+  .ads_table tbody tr td:last-child {
+    border-radius: 0 0 15px 15px;
+  }
+
+  tbody tr {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin-bottom: 2rem;
+  }
+}
